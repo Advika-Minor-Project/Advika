@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- Main Section -->
+<main class="inbox my-xl">
+  <div class="content-box">
+    <h3 class="inbox__title">Appointments(<span>{{Count}}</span>)</h3>
+
+    <ul class="messages">
+      {% for appointment in appointmentRequests %}
+      <li class="message">
+
+        <a href="{% url 'appointment' appointment.id %}">
+          <span class="message__author">{{appointment.name}}</span>
+          <span class="message__subject">{{appointment.subject}}</span>
+          <span class="message__date">{{appointment.date}}, {{appointment.time}}</span>
+        </a>
+        
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
+
+{% endblock content %}
