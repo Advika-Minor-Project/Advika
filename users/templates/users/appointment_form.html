@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% block content %}
+<!-- Main Section -->
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{% url 'user-profile' recipient.id  %}"><i class="im im-angle-left"></i></a>
+            <br>
+
+            <form class="form" method="POST">
+                {% csrf_token %}
+                {% if request.user.is_authenticated == False %}
+                <div class="form__field">
+                    <label for="formInput#text">{{form.name.label}}</label>
+                    {{form.name}}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">{{form.email.label}}</label>
+                    {{form.email}}
+                </div>
+                {% endif %}
+
+                <div>
+                    <label for="formInput#text">{{form.date.label}}</label>
+                    <input type="date" name="date" class="input" required="" id="id_date" min="2013-12-25">
+                
+                    <label style="margin-left: 2rem;" for="formInput#text">{{form.time.label}}</label>
+                    <input type="time" name="time" class="input" required="" id="id_time">
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">{{form.subject.label}}</label>
+                    {{form.subject}}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">{{form.body.label}}</label>
+                    {{form.body}}
+                </div>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
+{% block js %}
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', today);
+</script>
+{% endblock %}
