@@ -1,0 +1,138 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css_files%}
+<link rel= "stylesheet" type= "text/css" href= "{% static 'styles/tracker.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <div class="main__cards">
+            <div class="card" style="border-left: .25rem solid #4e73df!important;">
+                <div class="card_inner">
+                <p class="text-primary-p">TOTAL ENTRIES
+                </p>
+                <span class="font-bold text-title">{{total_entries}}</span>
+                </div>
+            </div>
+
+            <div class="card" style="border-left: .25rem solid #1cc88a!important;;">
+                <div class="card_inner">
+                <p class="text-primary-p">STREAK</p>
+                <span class="font-bold text-title">{{streak}}</span>
+                </div>
+            </div>
+
+            <div class="card" style="border-left: .25rem solid #36b9cc!important;">
+                <div class="card_inner">
+                <p class="text-primary-p">SENTIMENT CHANGE</p>
+                <span class="font-bold text-title">{{sentimental_change}}</span>
+                </div>
+            </div>
+
+            <div class="card" style="border-left: .25rem solid #f6c23e!important;">
+                <div class="card_inner">
+                <p class="text-primary-p">AVERAGE SENTIMENT</p>
+                <span class="font-bold text-title">{{avg_sentimental}}</span>
+                </div>
+            </div>
+            </div>
+            <!-- MAIN CARDS ENDS HERE -->
+
+            <!-- CHARTS STARTS HERE -->
+            <div class="charts">
+                <div class="charts__left">
+                    <div class="charts__right__title">
+                        <div>
+                            <h1>Today's Day Description
+                                
+                            </h1>
+                        </div>
+                        <a  href="{% url 'tracker-form'%}" class="btn btn--sub btn--lg">Day Description </a>
+                    </div>
+          
+                    <div class="charts__right__cards" >
+                          <div class="card1">
+                            <h3>{{latest_subject}}</h3>
+                            <p>{{lastest_desc}}</p>
+                          </div>
+                    </div> 
+            </div>
+
+            <div class="charts__right">
+                <div class="charts__right__title">
+                <div>
+                    <h1>Tracker Trend</h1>
+                </div>
+                </div>
+                <div id="apex1">
+                    <canvas id="myChart" style="width:50%;max-width:100%"></canvas>
+                </div>
+            </div>
+            </div>
+            
+        </main>
+{% endblock %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    var dates = [];
+    var sentiment_values = [];
+
+    "{% for val in sentiment_values %}"
+    sentiment_values.push("{{val}}");
+    "{% endfor %}"
+
+    "{% for val in dates %}"
+    dates.push("{{val}}");
+    "{% endfor %}"
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: dates,
+        datasets: [{
+            lineTension: 0.3,
+            backgroundColor: "rgba(78, 115, 223, 0.05)",
+            borderColor: "rgba(78, 115, 223, 1)",
+            pointRadius: 3,
+            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointBorderColor: "rgba(78, 115, 223, 1)",
+            pointHoverRadius: 3,
+            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+            pointHitRadius: 10,
+            pointBorderWidth: 2,
+            data: sentiment_values
+            }],
+        },
+      options: {
+        legend: {display: false},
+        
+      }
+    });
+
+
+new Chart("myChart2", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      borderColor: "red",
+      fill: false
+    },{
+      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+      borderColor: "green",
+      fill: false
+    },{
+      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+    </script>
+{% endblock %}
