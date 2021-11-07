@@ -1,0 +1,396 @@
+version: "2.0"
+stories:
+
+- story: name path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tell_name
+  - action: utter_ask_name
+  - intent: give_name
+  - action: action_receive_name
+  - intent: repeat_name
+  - action: action_say_name
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tell_name
+  - action: utter_ask_name
+  - intent: give_name
+  - action: action_receive_name
+  - slot_was_set:
+    - name: vincent
+  - intent: repeat_name
+  - action: action_say_name
+  - intent: tell_name
+  - action: utter_ask_name
+  - intent: give_name
+  - action: action_receive_name
+  - slot_was_set:
+    - name: jenny
+  - intent: repeat_name
+  - action: action_say_name
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_howdoing
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_restart
+- story: wherefrom
+  steps:
+  - intent: ask_wherefrom
+  - action: utter_ask_wherefrom
+- story: how old
+  steps:
+  - intent: ask_howold
+  - action: utter_ask_howold
+- story: how doing
+  steps:
+  - intent: how_doing
+  - action: utter_how_doing
+- story: happy path
+  steps:
+  - intent: mood_great
+  - action: utter_great
+  - action: utter_comewhenunhappy
+- story: busylife
+  steps:
+  - intent: busy_life
+  - action: utter_busy_life
+- story: want to talk
+  steps:
+  - intent: wanttotalk
+  - action: utter_wanttotalk
+- story: unhappy path
+  steps:
+  - intent: mood_unhappy
+  - action: utter_nod
+  - action: utter_unhappy
+- story: out of domain
+  steps:
+  - intent: out_of_domain
+  - action: utter_out_of_domain
+- story: project incomplete
+  steps:
+  - intent: projectincomplete
+  - action: utter_nod
+  - action: utter_projectincomplete
+- story: family issue
+  steps:
+  - intent: hate_family
+  - action: utter_hate_family
+  - intent: lack_of_love&care
+  - action: utter_lack_of_love&care
+  - action: utter_are_you_ok
+  - intent: affirm
+  - action: utter_great
+- story: thankyou
+  steps:
+  - intent: thankyou
+  - action: utter_welcome
+- story: arguement bot
+  steps:
+  - intent: youareabot
+  - action: utter_youareabot
+  - intent: surebot
+  - action: utter_surebot
+- story: lost beloved one
+  steps:
+  - intent: lost_beloved_one
+  - action: utter_lost_beloved_one
+- story: iagree
+  steps:
+  - intent: iagree
+  - action: utter_iagree
+- story: argument bot 2
+  steps:
+  - intent: youareabot
+  - action: utter_youareabot
+- story: argument bot 3
+  steps:
+  - intent: surebot
+  - action: utter_surebot
+- story: telljoke
+  steps:
+  - intent: telljoke
+  - action: utter_telljoke
+- story: handleinsult
+  steps:
+  - intent: handleinsult
+  - action: utter_handleinsult
+- story: feel lonely
+  steps:
+  - intent: feel_alone
+  - action: utter_feel_alone
+- story: exam failure
+  steps:
+  - intent: exam_failure
+  - action: utter_exam_failure
+- story: suicide
+  steps:
+  - intent: want_to_suicide
+  - action: utter_want_to_suicide
+  - action: utter_suicide_quote
+- story: financial issue
+  steps:
+  - intent: financial_issue
+  - action: utter_financial_issue
+- story: Love failure 1
+  steps:
+  - intent: love_failure
+  - action: utter_disappointment
+  - action: utter_love_failure
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - intent: cant_live
+  - action: utter_cant_live
+  - intent: out_of_control
+  - action: utter_out_of_control
+  - action: utter_are_you_ok
+  - intent: affirm
+  - action: utter_great
+- story: Study pressure 1
+  steps:
+  - intent: studypressure
+  - action: utter_studypressure
+- story: Work pressure
+  steps:
+  - intent: workpressure
+  - action: utter_workpressure
+- story: love failure basic
+  steps:
+  - intent: love_failure
+  - action: utter_love_failure
+- story: Love failure 2
+  steps:
+  - intent: love_failure
+  - action: utter_disappointment
+  - action: utter_love_failure
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - intent: want_to_suicide
+  - action: utter_canttolerate
+  - intent: want_to_suicide
+  - action: utter_want_to_suicide
+  - action: utter_suicide_quote
+  - intent: deep_love
+  - action: utter_nod
+  - action: utter_deep_love
+  - intent: cant_live
+  - action: utter_cant_live
+  - intent: out_of_control
+  - action: utter_out_of_control
+  - action: utter_are_you_ok
+- story: Study pressure 3
+  steps:
+  - intent: studypressure
+  - action: utter_nod
+  - action: utter_studypressure
+  - intent: exam_failure
+  - action: utter_exam_failure
+  - intent: not_understanding_feeling
+  - action: utter_not_understanding_feeling
+  - action: utter_are_you_ok
+  - intent: affirm
+  - action: utter_great
+- story: lack_of_job story2
+  steps:
+  - intent: lack_of_job
+  - action: utter_disappointment
+  - action: utter_lack_of_job
+  - intent: lack_of_job
+  - action: utter_lack_of_job
+  - action: utter_mm?
+  - intent: lack_of_job
+  - action: utter_lack_of_job
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - intent: out_of_control
+  - action: utter_disappointment
+  - action: utter_out_of_control
+  - action: utter_are_you_ok
+  - intent: affirm
+  - action: utter_canttolerate
+- story: Study pressure 2
+  steps:
+  - intent: studypressure
+  - action: utter_studypressure
+  - action: utter_explain
+  - intent: studypressure
+  - action: utter_nod
+  - action: utter_studypressure
+  - intent: not_understanding_feeling
+  - action: utter_not_understanding_feeling
+  - action: utter_mm?
+  - intent: mood_great
+  - action: utter_great
+  - action: utter_are_you_ok
+  - intent: thankyou
+  - action: utter_welcome
+- story: family issue 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_howdoing
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: hate_family
+  - action: utter_hate_family
+  - intent: dont_like_me
+  - action: utter_lack_of_love&care
+  - action: utter_mm?
+  - intent: lack_of_love&care
+  - action: utter_great
+  - intent: not_understanding_feeling
+  - action: utter_great
+  - intent: hate_family
+  - action: utter_hate_family
+  - intent: feel_alone
+  - action: utter_disappointment
+  - action: utter_feel_alone
+  - intent: mood_great
+  - action: utter_great
+  - intent: thankyou
+  - action: utter_welcome
+- story: Love failure 3
+  steps:
+  - intent: feel_alone
+  - action: utter_feel_alone
+  - intent: love_failure
+  - action: utter_disappointment
+  - action: utter_love_failure
+  - intent: love_else
+  - action: utter_love_else
+  - intent: cant_enjoy
+  - action: utter_cant_enjoy
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - action: utter_mm?
+  - intent: deep_love
+  - action: utter_deep_love
+  - intent: cant_enjoy
+  - action: utter_cant_enjoy
+  - intent: deep_love
+  - action: utter_deep_love
+  - action: utter_mm?
+- story: Work pressure 2
+  steps:
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: workpressure
+  - action: utter_workpressure
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - intent: workpressure
+  - action: utter_workpressure
+  - action: utter_mm?
+  - intent: affirm
+  - action: utter_great
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Work pressure 3
+  steps:
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: workpressure
+  - action: utter_nod
+  - action: utter_workpressure
+  - intent: workpressure
+  - action: utter_workpressure
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - action: utter_mm?
+  - intent: affirm
+  - action: utter_great
+- story: affirm
+  steps:
+  - intent: affirm
+  - action: utter_great
+- story: Cant tolerate
+  steps:
+  - intent: canttolerate
+  - action: utter_canttolerate
+  - action: utter_mm?
+- story: depression
+  steps:
+  - intent: depression_severe
+  - action: utter_depression_severe
+- story: depression change place
+  steps:
+  - intent: changeplace_depression
+  - action: utter_nod
+  - action: utter_changeplace_depression
+- story: Lack of job 1
+  steps:
+  - intent: lack_of_job
+  - action: utter_disappointment
+  - action: utter_lack_of_job
+  - intent: lack_of_job
+  - action: utter_lack_of_job
+  - action: utter_mm?
+  - intent: affirm
+  - action: utter_great
+- story: kill him
+  steps:
+  - intent: want_to_kill
+  - action: utter_want_to_kill
+- story: Lack of job 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_howdoing
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: mood_unhappy
+  - action: utter_nod
+  - action: utter_unhappy
+  - intent: lack_of_job
+  - action: utter_disappointment
+  - action: utter_lack_of_job
+  - intent: lack_of_job
+  - action: utter_lack_of_job
+  - action: utter_mm?
+  - intent: affirm
+  - action: utter_great
+  - intent: affirm
+  - action: utter_great
+  - intent: studypressure
+  - action: utter_nod
+  - action: utter_studypressure
+  - intent: not_understanding_feeling
+  - action: utter_not_understanding_feeling
+  - action: utter_mm?
+- story: Love failure 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_howdoing
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: love_failure
+  - action: utter_disappointment
+  - action: utter_love_failure
+  - intent: deep_love
+  - action: utter_deep_love
+  - intent: why_left_me
+  - action: utter_nod
+  - action: utter_why_left_me
+  - intent: cant_live
+  - action: utter_disappointment
+  - action: utter_love_failure
+  - intent: i_can't
+  - action: utter_out_of_control
+  - action: utter_mm?
+  - intent: affirm
+  - action: utter_great
