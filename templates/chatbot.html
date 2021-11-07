@@ -1,0 +1,47 @@
+{% load static %}
+
+{% block css_files%}
+<link rel= "stylesheet" type= "text/css" href= "{% static 'styles/chatbot.css' %}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+      crossorigin="anonymous"
+    />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="widget">
+       <div class="chat_header">
+
+          <span style="color:white;margin-left: 5px;">Advika BOT</span>
+          <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+          <i class="material-icons">close</i>
+          </span>
+       </div>
+
+       <div class="chats" id="chats">
+          <div class="clearfix"></div>
+       </div>
+
+       <div class="keypad" >
+         <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="on">
+         <i id="sendButton" class="fa fa-paper-plane" aria-hidden="true"></i>
+        
+      </div>
+       
+    </div>
+
+    <div class="profile_div" id="profile_div">
+       <img class="imgProfile" src="{% static 'images/Advika_botAvatar.png' %}"/>
+    </div>
+ </div>
+{% endblock  %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js'  %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+{% endblock %}
