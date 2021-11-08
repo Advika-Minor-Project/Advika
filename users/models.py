@@ -60,12 +60,13 @@ class Message(models.Model):
         ordering = ['is_read','-created']
 
 class Appointment(models.Model):
-    sender = models.ForeignKey(Profile,on_delete=models.SET_NULL,null=True,blank=True)
+    sender = models.ForeignKey(Profile,on_delete=models.SET_NULL,null=True,blank=True,related_name='sender_appointments')
     recipient = models.ForeignKey(Profile,on_delete=models.SET_NULL,null=True,blank=True,related_name = 'appointments')
     name = models.CharField(max_length=200,null=True,blank=True)
     email = models.EmailField(max_length=200,null=True,blank=True)
     date = models.DateField()
     time = models.TimeField()
+    confirm = models.BooleanField(default=False,null=True,blank=True)
     subject = models.CharField(max_length=200,null=True,blank=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)

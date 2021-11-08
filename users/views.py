@@ -203,7 +203,11 @@ def createMessage(request,pk):
 @login_required(login_url='login')
 def appointmentInbox(request):
     profile = request.user.profile
-    appointmentRequests = profile.appointments.all()
+    if profile.role == 'Mental Health Specialist':
+        appointmentRequests = profile.appointments.all().order_by('-confirm')
+    else:
+        appointmentRequests=profile.sender_appointments.all()
+        appointmentRequests.filter(confirm = True)
     Count = appointmentRequests.count()
     context = {'appointmentRequests': appointmentRequests, 'Count': Count}
     return render(request,'users/appointmentInbox.html',context)
@@ -211,7 +215,12 @@ def appointmentInbox(request):
 @login_required(login_url='login')
 def viewAppointment(request,pk):
     profile = request.user.profile
-    appointment = profile.appointments.get(id=pk)
+    if profile.role == 'Mental Health Specialist':
+        appointment = profile.appointments.get(id=pk)
+    else:
+        appointment = profile.sender_appointments.get(id=pk)
+    
+    print(appointment.confirm)
     context={'appointment':appointment}
     return render(request,'users/appointment.html',context)
 
@@ -248,8 +257,6 @@ def deleteAppointment(request,pk):
     profile = request.user.profile
     appointment = profile.appointments.get(id=pk)
 
-    
-    
     if request.method == 'POST':
         subject = 'Advika Appointment'
         ## SET MESSAGE
@@ -264,7 +271,32 @@ def deleteAppointment(request,pk):
         )
         appointment.delete()
         messages.success(request, 'Appointment was deleted successfully!')
-        return redirect('account')
+        return redirect('appointmentInbox')
 
     context = {'appointment': appointment}
     return render(request,'users/deleteAppointment.html',context)
+
+@login_required(login_url = 'login')
+def confirmAppointment(request,pk):
+    profile = request.user.profile
+    appointment = profile.appointments.get(id=pk)
+    context = {'object': appointment}
+    if request.method == 'POST':
+        subject = 'Advika Appointment'
+        ## SET MESSAGE
+        message = 'Confirm' + str(appointment.subject)
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [appointment.email],
+            fail_silently=False,
+        )
+        appointment.confirm = True
+        appointment.save()
+        messages.success(request, 'Appointment was Confirmed successfully!')
+        return redirect('appointmentInbox')
+    return render(request,'users/confirm_appointment.html',context)
+
+
