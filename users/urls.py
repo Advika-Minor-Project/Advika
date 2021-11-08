@@ -22,6 +22,7 @@ urlpatterns = [
     path('create-appointment/<str:pk>/',views.createAppointment,name='create-appointment'),
     path('appointment/<str:pk>/',views.viewAppointment,name='appointment'),
     path('appointment-inbox/',views.appointmentInbox,name='appointmentInbox'),
-    path('delete-appointment/<str:pk>/',views.deleteAppointment,name='deleteAppointment')
+    path('delete-appointment/<str:pk>/',views.deleteAppointment,name='deleteAppointment'),
+    path('confirm-appointment/<str:pk>',views.confirmAppointment,name='confirmAppointment')
     
 ]

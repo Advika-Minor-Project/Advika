@@ -8,7 +8,11 @@
 
     <ul class="messages">
       {% for appointment in appointmentRequests %}
+      {% if appointment.confirm == True %}
+      <li class="message message--unread">
+        {% else %}
       <li class="message">
+        {% endif %}
 
         <a href="{% url 'appointment' appointment.id %}">
           <span class="message__author">{{appointment.name}}</span>

@@ -7,7 +7,14 @@
   <div class="content-box">
     <div class="message">
       <a class="backButton" href="{% url 'appointmentInbox' %}"><i class="im im-angle-left"></i></a>
-      <h2 class="message__subject">{{appointment.subject}} <a href="{%url 'deleteAppointment' appointment.id%}"><i class="im im-trash-can"></i></a></h4>
+      <h2 class="message__subject">{{appointment.subject}} 
+        {% if request.user.profile.role == 'Mental Health Specialist'%}
+          <a href="{%url 'deleteAppointment' appointment.id%}"><i class="im im-trash-can"></i></a> 
+          {% if appointment.confirm == False %}
+          <a style="float: right;" href="{%url 'confirmAppointment' appointment.id%}"><i  class="im im-check-mark"></i></a>
+          {% endif %}
+        {% endif %}
+      </h2>
         
         {% if appointment.sender %}
         <a href="{% url 'user-profile' appointment.sender.id  %}" class="message__author">{{appointment.name}}</a>
