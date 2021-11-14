@@ -13,35 +13,51 @@ def tracker(request):
     dates = []
     sentiment_values = []
     tracks = profile.tracks.filter(owner = profile)
+    desc = []
 
     for track in tracks:
         dates.append(track.date)
+        desc.append(track.body)
         sentiment_values.append(TextBlob(track.body).sentiment.polarity)
+        
+    if len(sentiment_values)==0 or len(dates)==0:
+        total_entries = 0
+        streak = 0
+        sentimental_change = 0
+        avg_sentimental = 0
+        latest_subject = ''
+        lastest_desc = ''
     
-    count = 0
-    x = len(dates)
-    m=0
+    else:
 
-    while x:
-        if datetime.date.today() == dates[x-1]:
+        count = 0
+        x = len(dates)
+        m=0
+
+        while x:
+            if datetime.date.today() == dates[x-1]:
+                x-=1
+                continue
+            m = int(float(str(datetime.date.today() - dates[x-1]).split()[0]))
+            count+=1
+            if m!=count:
+                m=0
+                break
             x-=1
-            continue
-        m = int(float(str(datetime.date.today() - dates[x-1]).split()[0]))
-        count+=1
-        if m!=count:
-            m=0
-            break
-        x-=1
-    if datetime.date.today() in dates:
-        m+=1
-    total_entries = len(dates)
-    streak = m
-    sentimental_change = round(sentiment_values[-1]-sentiment_values[-2],2)
-    avg_sentimental = round(mean(sentiment_values), 2)
-    latest_subject = tracks[len(tracks)-1].subject
-    lastest_desc = tracks[len(tracks)-1].body
+        if datetime.date.today() in dates:
+            m+=1
+        total_entries = len(dates)
+        streak = m
+        if len(sentiment_values)==1:
+            sentimental_change=0
+        else:
+            sentimental_change = round(sentiment_values[-1]-sentiment_values[-2],2)
+
+        avg_sentimental = round(mean(sentiment_values), 2)
+        latest_subject = tracks[len(tracks)-1].subject
+        lastest_desc = tracks[len(tracks)-1].body
     
-    context = {'dates':dates,'sentiment_values':sentiment_values,'total_entries':total_entries,'streak':streak,'sentimental_change':sentimental_change,'avg_sentimental':avg_sentimental,'latest_subject':latest_subject,'lastest_desc':lastest_desc}
+    context = {'dates':dates,'sentiment_values':sentiment_values,'total_entries':total_entries,'streak':streak,'sentimental_change':sentimental_change,'avg_sentimental':avg_sentimental,'latest_subject':latest_subject,'lastest_desc':lastest_desc,'desc':desc}
     return render(request,'tracker/tracker.html',context)
 
 @login_required(login_url='login')

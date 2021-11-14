@@ -9,9 +9,10 @@
       <a class="backButton" href="{% url 'appointmentInbox' %}"><i class="im im-angle-left"></i></a>
       <h2 class="message__subject">{{appointment.subject}} 
         {% if request.user.profile.role == 'Mental Health Specialist'%}
-          <a href="{%url 'deleteAppointment' appointment.id%}"><i class="im im-trash-can"></i></a> 
+          <a style="float: right; margin-left: 2%;" href="{%url 'deleteAppointment' appointment.id%}"><button class="btn btn--sub"> Delete <i class="fa fa-trash-o " ></i> </button></a> 
           {% if appointment.confirm == False %}
-          <a style="float: right;" href="{%url 'confirmAppointment' appointment.id%}"><i  class="im im-check-mark"></i></a>
+          <a style="float: right;" href="{%url 'confirmAppointment' appointment.id%}"><button class="btn btn--sub">  Confirm <i class="fa fa-check-circle-o" aria-hidden="true"></i> </button></a>
+          
           {% endif %}
         {% endif %}
       </h2>

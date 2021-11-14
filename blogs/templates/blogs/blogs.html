@@ -19,9 +19,29 @@
                     <input class="btn btn--sub btn--lg" type="submit" value="Search" />
                 </form>
             </div>
+            
         </div>
     </section>
     <!-- Search Result: DevList -->
+    <section >
+        <div class="container container--narrow">
+    <div class="hero-section__box">
+        <h2 style="text-align: center;"><span>Tags</span></h2>
+    
+    <div class="hero-section__search">
+    <form id='searchForm' class="form" action="{% url 'blogs' %}" method="get">
+        <div class="form__field" style="margin-bottom: 0%;">
+            
+            {% for tag,count in tags.items%}
+                <input name="tags" class="btn btn--sub btn--lg" style="margin: inherit;" type="submit" value="{{tag}}({{count}})"/>
+            {% endfor %}
+            
+    </form>
+    </div>
+</div>
+</div>
+</section>
+    
     <section class="projectsList">
         <div class="container">
             <div class="grid grid--three">

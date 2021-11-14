@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from .utils import searchProfiles,paginateProfiles
-from .models import Profile
+from .models import Profile,Message
 from .forms import AppointmentForm, CustomUserCreationForm,ProfileForm,MessageForm,QualificationForm,RoleForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -56,10 +56,24 @@ def registerUser(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-            profile = Profile.objects.get(user = user)
-            profile.role = role
-            profile.save()
-            roleform.save()
+            profile = Profile.objects.create(
+                user=user,
+                username=user.username,
+                email=user.email,
+                name=user.first_name,
+                role=role
+            )
+
+            subject = 'Welcome to Advika'
+            message = 'We are glad you are here!'
+
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [profile.email],
+                fail_silently=False,
+            )
             messages.success(request,'User account was created')
 
             login(request,user)
@@ -207,7 +221,6 @@ def appointmentInbox(request):
         appointmentRequests = profile.appointments.all().order_by('-confirm')
     else:
         appointmentRequests=profile.sender_appointments.all()
-        appointmentRequests.filter(confirm = True)
     Count = appointmentRequests.count()
     context = {'appointmentRequests': appointmentRequests, 'Count': Count}
     return render(request,'users/appointmentInbox.html',context)
@@ -245,6 +258,17 @@ def createAppointment(request,pk):
             if sender:
                 appointment.name = sender.name
                 appointment.email = sender.email
+
+            subject = 'Advika Appointment'
+            ## SET MESSAGE
+            message = 'Your ' + str(appointment.subject) + ' appointment has been sent for approval.\n' + ' Date: '+ str(appointment.date) + 'Time: '+str(appointment.time)
+            send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [appointment.email],
+            fail_silently=False,
+            )
             appointment.save()
 
             messages.success(request,'Your Appointment is set successfully!')
@@ -258,9 +282,12 @@ def deleteAppointment(request,pk):
     appointment = profile.appointments.get(id=pk)
 
     if request.method == 'POST':
-        subject = 'Advika Appointment'
+        reason = request.POST['reason']
+
+        subject = 'Advika Appointment Not approved'
         ## SET MESSAGE
-        message = appointment.subject
+        message = 'Your appointment could not be approved. Please try again.\n'
+        message = message +'because '+reason
 
         send_mail(
             subject,
@@ -269,6 +296,16 @@ def deleteAppointment(request,pk):
             [appointment.email],
             fail_silently=False,
         )
+        
+        Message.objects.create(
+            sender=profile,
+            recipient=appointment.sender,
+            name=profile.name,
+            email=profile.email,
+            subject=subject,
+            body=message
+        )
+
         appointment.delete()
         messages.success(request, 'Appointment was deleted successfully!')
         return redirect('appointmentInbox')
@@ -282,9 +319,9 @@ def confirmAppointment(request,pk):
     appointment = profile.appointments.get(id=pk)
     context = {'object': appointment}
     if request.method == 'POST':
-        subject = 'Advika Appointment'
+        subject = 'Advika Appointment Confirm'
         ## SET MESSAGE
-        message = 'Confirm' + str(appointment.subject)
+        message = 'Your ' + str(appointment.subject) + ' appointment has been confirmed.\n' + ' Date: '+ str(appointment.date) + 'Time: '+str(appointment.time)
 
         send_mail(
             subject,
@@ -295,6 +332,14 @@ def confirmAppointment(request,pk):
         )
         appointment.confirm = True
         appointment.save()
+        Message.objects.create(
+            sender=profile,
+            recipient=appointment.sender,
+            name=profile.name,
+            email=profile.email,
+            subject=subject,
+            body=message
+        )
         messages.success(request, 'Appointment was Confirmed successfully!')
         return redirect('appointmentInbox')
     return render(request,'users/confirm_appointment.html',context)

@@ -11,7 +11,9 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ['first_name','email','username','password1','password2']
         labels = {
-            'first_name':'Name'
+            'first_name':'Name*',
+            'email':'Email address*',
+
         }
 
     def __init__(self,*args,**kwargs):
@@ -19,17 +21,22 @@ class CustomUserCreationForm(UserCreationForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
-
+            field.widget.attrs['required'] = 'required'
+            
 class RoleForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['role']
+        labels={
+            'role':'Role*'
+        }
 
     def __init__(self, *args, **kwargs):
         super(RoleForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'
 
 class ProfileForm(ModelForm):
     class Meta:
@@ -50,7 +57,8 @@ class QualificationForm(ModelForm):
         model = Qualification
         fields = '__all__'
         labels = {
-            'qualification':'Qualification'
+            'qualification':'Qualification*',
+            'description':'Description*'
         }
         exclude = ['owner']
 
@@ -59,27 +67,41 @@ class QualificationForm(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'
 
 class MessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['name', 'email', 'subject', 'body']
+        labels= {
+            'name':'Name*',
+            'email':'Email address*',
+            'subject':'Subject*',
+            'body':'Description*'
+        }
 
     def __init__(self, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'
 
 class AppointmentForm(ModelForm):
     class Meta:
         model = Appointment
         fields = ['name','email','date','time','subject','body']
         labels = {
-            'body':'Description'
+            'name':'Name*',
+            'email':'Email address*',
+            'date':'Date*',
+            'time':'Time*',
+            'subject':'Subject*',
+            'body':'Description*'
         }
 
     def __init__(self, *args, **kwargs):
         super(AppointmentForm, self).__init__(*args, **kwargs)
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'
