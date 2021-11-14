@@ -1,0 +1,1025 @@
+version: "2.0"
+nlu:
+- intent: quotes
+  examples: |
+    - quote
+    - quotes
+    - thought
+    - thoughts
+    - thought for the day
+    - quotes for the day
+    - quote for the day
+    - inspiration
+    - inpirational
+- intent: faqs
+  examples: |
+    - FAQS
+    - FAQ
+    - faqs
+    - faq
+    - frequently asked questions
+    - Frequently Asked Questions
+    - Questions
+    - Mental health about
+    - About mental health
+    - about mental health
+- intent: ask_howdoing
+  examples: |
+    - My name is [Ashish](name)
+    - [ashish]{"entity": "name", "value": "Ashish"} this side
+    - It's [ashish]{"entity": "name", "value": "Ashish"}
+    - [ashish]{"entity": "name", "value": "Ashish"} is my name
+    - [Ashish](name)
+    - [Rahul](name)
+    - [ashish]{"entity": "name", "value": "Ashish"}
+    - My name is [Harsh](name)
+    - [harsh]{"entity": "name", "value": "Harsh"} this side
+    - It's [harsh]{"entity": "name", "value": "Harsh"}
+    - [harsh]{"entity": "name", "value": "Harsh"} is my name
+    - [Harsh](name)
+    - [harsh]{"entity": "name", "value": "Harsh"}
+    - It is [Tom](name)
+    - My name is [Bob](name)
+    - my name is [Harsh](name)
+    - name is [Rajesh](name)
+    - my name is [demo](name)
+    - name is [demo](name)
+    - I am [Harsh](name)
+    - I am [Nandan](name)
+    - I am [demo](name)
+    - myself [Harsh](name)
+    - myself [demo](name)
+    - I am [Pratikshit](name)
+    - I am [Shishir](name)
+    - I am [Aaryan](name)
+    - I am [Ananya](name)
+    - I am [pratikshit](name)
+    - I am [Monika](name)
+    - I am [Sudesh](name)
+    - I am [Pratikshit](name)
+- intent: greet
+  examples: |
+    - Hi
+    - Hey
+    - Hi bot
+    - Hey bot
+    - Hello
+    - good morning
+    - hi again
+    - hi folks
+    - hi Mister
+    - hi pal!
+    - hi there
+    - greetings
+    - hello everybody
+    - hello is anybody there
+    - hello robot
+    - hi
+    - hello
+    - hai
+    - thank you
+    - hlo
+- intent: affirm
+  examples: |
+    - yes
+    - yes sure
+    - absolutely
+    - for sure
+    - yes yes yes
+    - definitely
+    - yeah
+    - si
+    - ok
+    - okay
+    - mm
+    - mmm.. I will try my best
+    - Kk.. I'll do that
+    - Kkkk
+    - Mmm.. I will try.
+    - Kkk.. I'll try that.
+    - Mmm.. I will try
+    - I will try my best.
+    - Mmm
+    - mmm.. Ok i will try one more time
+    - ok.. I'ill try one more time
+    - mmm...
+    - mmm..Ok.. i will try
+    - cool
+- intent: busy_life
+  examples: |
+    - They are busy with their stuffs.. They only thinks about their own work
+    - All are busy with something.
+    - All are very busy with their own problems.
+    - Busy
+    - Everyone is busy
+    - Too busy life in work
+    - Busy work
+    - No time
+    - Too much work
+    - Work Pressure
+    - No time to do anything
+- intent: cant_enjoy
+  examples: |
+    - I don’t enjoy doing what i love anymore.
+    - I'm no longer enjoying doing what I love.
+    - I no longer enjoy doing what I love.
+    - I feel hungry but don’t want to eat.
+    - I participate in every celebrations . But i don't enjoy that moments.
+    - I'm taking part in every celebration. But those moments I don't
+    - I take part in every celebration. But these moments I don't appreciate.
+    - I'm part of every celebration. But I'm not enjoying those moments.
+    - I’m are not able to concentrate on anything surrounding me.
+    - In fact, I can no longer enjoy my life.
+    - Actually i can't enjoy my life anymore.
+    - I'm not interested in anything.
+    - Nothing seems to be interesting to me.
+    - Nothing in this world can make me happy.
+    - I can't enjoy anything.
+    - I'm not able to enjoy things around me.
+    - Actually, I can no longer enjoy my life.
+    - Actually I'm no longer able to enjoy my life.
+    - I don’t feel like eating or going out. Just staying indoors
+    - I'm trying.. But i can't enjoy anything around me. I don't feel like eating or going out
+    - not enjoying my life as much as i once did
+- intent: cant_live
+  examples: |
+    - I can't live without him.
+    - I can't live without her.
+    - I don't need a life without my sweetheart.
+    - I think i can't move on without her.
+    - I'm nothing without her.
+    - I can't live without her
+    - i will die for her.. I will kill for her.. But i can't live without her
+    - I don't want to live
+    - There is no will left to live
+    - There is nothing left in the life
+- intent: canttolerate
+  examples: |
+    - I can't tolerate this anymore. I quit.
+    - I can't bear this. I'm gonna give up.
+    - I can't bear this anymore. I gonna quit.
+    - I suffered a lot.. I can't bear it anymore.
+    - I suffered a lot more than a human being can.. I can't bear it anymore.
+    - I have endured much more than a human being can. I can no longer
+    - I've suffered much more than a human being can. I can't carry it
+    - I am no longer able to bear this..I'm going to give up.
+    - I can no longer carry this
+    - I cant tolerate this anymore. I'm gonna quit
+    - I'm gonna mad if things are going like this
+    - I don't think so.. I can't handle this situation.. I can't bear this
+    - I can't wait anymore. I'm tired of this.. I gonna give up
+    - No.. I don't think there is no use. I can't bear this anymore
+    - I can't bear this pain..
+    - I can't bear this.. I don't want a life without her.
+    - I feel like giving up.. I can't continue this anymore
+    - I feel like i'm giving up.. I can't continue this anymore
+- intent: changeplace_depression
+  examples: |
+    - I think I'm depressed because I have nothing to do here.
+    - I'm depressed because I don't have anything here.
+    - I'm so lonely here. I left all my friends to come here.
+    - I left my home to work here, But i'm not comfortable here.
+- intent: compell_marry
+  examples: |
+    - I want to go to work but my parents compells me to get married
+- intent: deep_love
+  examples: |
+    - I want her by my side to the end of my life.. I can't forget her.. She is my life
+    - But I loved her so much. I loved her more than anything in this world. She was my world
+    - I'm sure that i can't forget her. I was in love with her madly.
+    - No.. She is my world.. She is my life.
+    - I'm gonna  mad. .Because i can't forget her
+    - How simply you are telling this.. You don't know how much i loved her
+- intent: depression_severe
+  examples: |
+    - I'm always depressed for no reason.
+    - I suffer from depression constantly.
+    - I'm always depressed and I don't know why.
+    - I'm so depressed that I don't know if it's worth living any longer.
+    - Can you do anything to help my depression?
+- intent: dont_like_me
+  examples: |
+    - I know that no one likes me.
+    - No one likes me because I’m not beautiful.
+    - My parents don’t like me.
+    - My parents don't likes me.. They always scold me.. Beat me..
+- intent: exam_failure
+  examples: |
+    - I failed in my university exam.
+    - I scored the least in the exam.
+    - I’m a failure.
+    - My parents scolded me when I failed in my exam.
+    - I scored very bad in my exam.
+    - I don’t have good memory, so I failed in my exam.
+    - I failed in one subject.
+    - I failed in the final exam.
+    - I'm the one who scored the least in the last exam. How can i tolerate this?
+- intent: feel_alone
+  examples: |
+    - i feel like i'm alone in this world
+    - In this globe, I feel like I'm alone
+    - I feel like I'm in this globe alone
+    - In this world I feel like I'm alone
+    - I feel like in this world I'm alone
+    - we are really alone in  our life
+    - Nothing really matters anymore.
+    - In our lives, we're really alone.
+    - In our lives, we are really alone.
+    - I feel like I don't have anyone to talk to or turn to.
+    - I want to be with someone but I have no one.
+    - I want to be with somebody but I don't have anybody
+    - I want to be with somebody, but I don't have any
+    - I try so hard to connect with people but I find myself alone in a
+    - I feel disconnected and isolated from everyone else.
+    - I’m  very aware of the fact that I’m alone, which makes me feel even
+    - I always feel lonely in my home
+    - I don't have anyone to talk with.. I'm alone
+    - Ya.. I'm feeling alone
+- intent: financial_issue
+  examples: |
+    - I'm facing some financial issues
+    - I'm faced with some economic problems
+    - I'm dealing with some economic problems
+    - I am confronted with some financial problems
+    - I am faced with some financial problems
+    - we are going through some financial crisis.
+    - We're going through a financial crisis.
+    - We're experiencing a financial crisis.
+    - Some financial crisis we're going through.
+    - We are experiencing a financial crisis.
+    - We owe a lot of debt.
+    - We owe a heavy debt.
+    - We owe a large debt.
+    - We owe a considerable amount of debt.
+    - We've got to pay a lot
+    - we have to repay a great amount
+    - We've got to repay a lot
+    - We've got to pay a great deal
+    - We have to pay a lot of money
+    - We're in the dumps about our financial situation.
+- intent: goodbye
+  examples: |
+    - Bye
+    - Bye!
+    - Goodbye
+    - See you later
+    - Bye bot
+    - Goodbye friend
+    - bye
+    - bye for now
+    - catch you later
+    - gotta go
+    - See you
+    - goodnight
+    - have a nice day
+    - i'm off
+    - see you later alligator
+    - we'll speak soon
+    - bye.. See you later
+    - goodbye
+    - ok then bye
+    - gub bye
+- intent: handleinsult
+  examples: |
+    - you're a loser lmao
+    - you are a stupid bot
+    - i hate you
+    - Stupid
+    - fuck you
+    - so dumb
+    - you are a moron
+    - you are an idiot
+    - so fucking dumb
+    - are you brain dead?
+    - how can you be such an idiot?
+    - a baby knows more than you
+    - i hate your dumb face
+    - you are fucking stupid
+    - bloody dunce
+    - You're an idiot.
+    - You are a fool.
+    - You're foolish.
+    - You are dumb.
+    - You have no sense.
+    - You are unintelligent.
+    - You're a dolt.
+    - You're a dunce.
+    - You have no brains.
+    - You have no intelligence.
+    - You are an idiot.
+    - You lack intelligence.
+    - You are unknowing.
+    - You are shortsighted.
+    - Your intelligence is laughable.
+    - You know nothing.
+    - You lack understanding.
+    - Your mindset is naive.
+    - You brain is dull.
+    - you are dumb
+    - you're an idiot
+    - God you're a moron
+    - you're so dumb
+    - you are idiotic
+    - you're the most moronic person I know
+    - I can't believe how dumb you are
+    - you are unintelligent
+    - you're not smart
+    - you are so ignorant
+    - you are stupid
+    - you're dumb
+    - asshole
+    - bitch
+    - fuck u
+    - idiot
+    - deal with my ass, you bitch
+    - you son of a bitch
+    - shut up asshole
+    - you asshole
+    - are u dump?
+    - fuck off
+    - fuck
+    - Fuck
+    - Fuck you
+    - fuck you machine learning bot
+    - Fuck u
+    - what fuck
+    - fucking stupid
+    - you are fucking stupid guy！
+    - go fuck yourself
+    - Fuck off
+    - fuck rasa
+    - fuck you!
+    - Fuck Off
+    - ok fuck you
+    - FUCK
+    - fucking work
+    - ok shut up
+    - You stupid
+    - you stupid
+- intent: hate_family
+  examples: |
+    - I hate my family.
+    - I hate my household
+    - I'm hateful to my family
+    - i don't want to be with my family anymore.
+    - I'm not going to be with my family
+    - I don't want my family to be with me
+    - I wouldn't like to be with my family
+    - I'd like to run away from home
+    - i want to run away from my home
+    - I want to flee from my home
+    - I want to run out of my house
+    - I would like to run away from home
+    - I'm not happy in my family
+    - I'm not happy in my famlily
+    - I hate my family
+    - i hate my family
+    - I don't wwant to be with my family
+    - I'm not happy in my famlity
+    - i hate my home
+- intent: health_issue
+  examples: |
+    - I'm suffering from severe [headache](sick) and [cold](sick)
+    - I'm a [Kidney patient](sick).. I'm moving on by having dialysis every week.
+    - Life is too tough for me.. because i'm a [heart patient](sick).. I had 2 strokes till now..
+    - iam suffering from [fever](sick)
+    - I'm too much worried about my health issue.. I'm facing an issue that doctors can't identify. They are saying it is just a illusion
+    - Due to continuous work i got a severe [neck pain](sick).. And it is going intense by time
+    - Its just because of this pain  i can't smile happily.. It pains that much
+    - I'm suffering from severe [back pain](sick) since my childhood. Now i have to resign my job because of this..
+    - I'm suffering from severe back pain since my childhood. Now i have to resign my job because of this..
+    - I can't bear this pain..
+    - My uncle was diagnosed with [cancer](sick). The doctors don't expect him to make it
+    - My mother is very sick right now. I'm worried and sad.
+- intent: how_doing
+  examples: |
+    - how are you
+    - Ahoy matey how are you?
+    - are you alright
+    - Are you ok?
+    - are you okay
+    - Do you feel good?
+    - how are things going
+    - how are things with you?
+    - How are things?
+    - how are you doing
+    - how are you doing this morning
+    - how are you feeling
+    - how are you today
+    - How are you?
+    - how do you do?
+    - how have you been
+    - how is it going
+    - how is your evening
+    - How's it going
+    - How's it hanging?
+    - how's life
+    - how's life been treating you?
+    - How's life treating you friend?
+    - How've you been?
+    - I'm fine and you
+    - is everything all right
+    - Is everything ok?
+    - is everything okay
+    - What's going on?
+    - what's good
+    - What's new?
+    - What's up man
+    - What's up
+    - how are you?
+    - how are you doing today my sweet friend
+    - how are you doing?
+    - how are u?
+    - nah, I'm good - how are you doing?
+    - How are you
+    - how you doing
+    - are you ok?
+    - How are you today?
+    - okay hi how are you?
+    - how r u?
+    - what's up?
+    - how are you????
+    - how ?
+    - how r u ?
+    - h r u ?
+    - how's it going?
+    - hello, how are you?
+    - hw r u?
+    - what's up
+    - wassup>
+    - hi how u doing
+    - Hi Sara! How are you?
+    - how are you ?
+    - how are you doing today?
+    - how you doing?
+    - How are You?
+    - what doing
+    - Hows it going
+- intent: i_can't
+  examples: |
+    - I may work for other.. But i'm sure it won't work for me
+    - It is not working for me
+- intent: iagree
+  examples: |
+    - i agree , you're a human
+    - ok , you're a human
+    - Okay, i agree
+    - Ok you are not a bot
+    - So you are not a bot
+    - so you're a human
+    - Ok. I agree.
+    - Ok.. You are a human.
+    - I agree you're a human.
+    - Okay.. I agree.
+    - Ok ok.. You are a human.
+    - ok, i agree
+    - Ok, i agree
+    - Ohh i seee
+- intent: iamnotsaying_iamsaying
+  examples: |
+    - Why don't you understand me.. I'm not talking about that
+    - I'm not saying about that.. I mean this
+    - Hey.. I'm not saying about that..
+    - I'm not saying about family.. I'm talking about my work
+    - I'm not saying anything about my family.. Its about my work
+    - I am not talking about study.. I'm saying about my career
+- intent: lack_of_job
+  examples: |
+    - I am 33, I am jobless and I am heartbroken too.
+    - I’m in  search of job
+    - I tried a lot for a job.
+    - I’m not getting a job even though I tried a lot.
+    - I didn’t get any placement from college.
+    - I’m not placed in any company.
+    - I’m not placed anywhere, I tried a lot.
+    - I've been looking for work. I can't seem to find a job.
+    - I'm searching for a job now, but I'm slacking off.
+    - All my friends got placed in different companies. But i didn't got
+    - I tried a lot to get a job. Am i that bad?
+    - I'm in search for a job. but i'm not getting
+    - He told me had been looking for work, but hadn't found a job.
+    - I had been looking for work, but hadn't found a job.
+    - Oh, I didn't get that job.
+    - My family and friends insulting me because I don’t have a job.
+    - I can't face my parents because iam jobless.
+    - A young man without a job have no value in the society.
+    - I'm sick of that.. I really want a job. Why i'm not getting one?
+    - This world will laugh at me.. They  will humiliate me.. No one respect people who don't have a job you know?
+    - yeah.. I'm not well because i'm not getting a job even though i tried a lot
+    - All my friend got placed in good companies, But i'm not..
+    - I tried a lot to get a job. But i'm not getting   job
+    - I'm worried about my career
+    - All my friends got placed in different companies. But i didn't got any..
+    - I trained so hard, but I didn't make the wrestling team. I'm a little down.
+    - I tried my maximum.. But i didn't got one
+    - May be I'm down because i  don't get a job from college placement
+    - I know that and I'm still trying.. But all my friends were placed in good companies and i'm still wandereing for a job.. Its so disgusting..
+    - You know I'm tired of searching for a job.. I didn't get any.. I'm so sad
+- intent: lack_of_love&care
+  examples: |
+    - I feel like people don't want me  around.
+    - They aren't really bothered about our existence
+    - My parents don’t care about me. They don’t love me.
+    - I’m not getting love and care from anyone.
+    - They don't love me and don't cares me
+    - I don't think he loves me anymore.
+    - I don't think she loves me anymore.
+    - I don't think they loves me.
+    - He no more cares about me.
+    - He don't care about me.
+    - No.. They don't loves me and cares me.. They don't bothers about me
+- intent: lost_beloved_one
+  examples: |
+    - I lost my mom.
+    - My mom went to heaven leaving me alone.
+    - My mother passed away.
+    - My mom passed away one year ago.
+    - My dad Passed away.
+    - My sister died last year. She was my best companion.
+    - My grandfather just passed away. I was so close to him.
+    - My pet died yesterday
+    - I lost someone
+    - My pet died
+- intent: love_else
+  examples: |
+    - I don't think I'll be able to love anyone again.
+    - No one can replace her place in my heart
+    - I can't imagine anyone else in her position
+    - I can't love anyone else other than her
+    - I don't want anyone else in my life.
+    - No. I don't think so.. I can't imagine someone else for her
+- intent: love_failure
+  examples: |
+    - I broke up with the love of my life.
+    - I broke with my life's love.
+    - I broke up with my love.
+    - But why did she left me?
+    - What would i say.. I broke up with my love
+    - I broke up with my love
+    - Oh.. Thanks for that..But the problem is i broke up with my love
+    - i broke up with my love
+    - She left me.. My love
+- intent: meaningless
+  examples: |
+    - htyrt
+    - vghgg
+    - abcdefg
+    - mjfgig
+    - jioeufuy
+    - rtadgc
+    - mkkm
+    - ertred
+    - mlmokji
+    - hjbhnjnji
+    - mkomioo
+    - trtygbhbn
+    - mbccnvb
+    - kljdoifejui
+    - loijkdha
+    - nnndhd
+    - tteyyyy
+    - erwaeedsx
+    - hghj
+    - dsfgcvbhsc
+    - jjju
+    - vgjuu
+    - vhgh
+    - hjjghgjk
+- intent: mood_great
+  examples: |
+    - perfect
+    - very good
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I'm good
+    - I'm happy
+    - Happy to hear that
+    - I'm happy to hear that
+    - Awesome
+    - I'm so happy today
+    - I'm fine
+    - I'm perfectly fine
+    - Doing great.
+    - I'm ok
+    - I'm doing good
+    - Today is really wonderfull day
+    - Feeling good
+    - feeling great
+    - I'm happpyyy
+    - I'm so happy
+    - I am fine
+- intent: mood_unhappy
+  examples: |
+    - sad
+    - very sad
+    - unhappy
+    - bad
+    - very bad
+    - awful
+    - terrible
+    - not very good
+    - extremely sad
+    - so sad
+    - I'm not well
+    - I'm not doing good
+    - I'm not good these days
+    - I don't feel good these days
+    - I'm very sad.
+    - I feel very bad
+    - I’m feeling low
+    - Its terrible
+    - Not too well
+    - Not so good
+    - i don't know what to say. I'm not well
+    - I'm not well these days
+    - Iam not comfortable
+    - I'm not fine
+    - i think iam mad
+    - I'm not comfortable
+    - So sad
+    - I'm not happy
+    - I'm not good
+    - I'm so sad
+    - I'm feeling not good
+    - i can't really say whats my problem?
+    - I'm feeling low
+    - Actually i don't know whats my problem.. But i'm not happy
+    - I don't know my problem actually..  but i'm not well
+    - What would i say... I'm not happy
+    - I'm feeling a little down
+    - I feel so gloomy all the time
+    - I'm sick of feeling gloomy.
+    - I'm feeling a bit gloomy.
+    - I'm feeling a little blue right now
+    - I'm worried so much
+    - I'm anxious
+    - I'm totally irritated..
+    - So gloomy..
+    - I said that i'm happy but actually i'm not happy
+    - I'm terribly sad today
+    - I'm  really disappointed today
+    - I'm so depressed.
+    - I'm totally distressed
+    - I'm  too frustrated
+    - I'm down.
+    - I'm worried
+    - I'm really upset these days.
+    - I'm getting mad
+    - How can i explain  that..  I'm reallu frustrated
+    - It can't be explained.. i can't find any words to explain that.. I'm .. I'm really down
+    - how can i explain that.. I'm really frustrated
+    - I'm a little down
+    - I don't know actually whats my problem.. But i'm not happy
+    - I'm not feeling well
+    - I'm not feelimg well
+    - iam not comfartable
+    - I'm totally upset
+    - I am feeling sad today
+- intent: not_understanding_feeling
+  examples: |
+    - we are surrounded by so many people but not one of them understand us.
+    - So many individuals surround us, but not one of them understands us.
+    - So many individuals surround me, but not one of them knows me.
+    - We're surrounded by so many people, but we don't understand one of
+    - There is no one to understand my feelings
+    - Nobody can comprehend my emotions
+    - Nobody can understand my feelings.
+    - Nobody understands my feelings
+    - They say they understand, when they’re not even listening.
+    - They say that when they don't even listen, they know.
+    - They say that they understand when they don't even listen.
+    - intent :busy_life
+    - Everybody is too busy in their own lives.
+    - My parents are too busy.
+    - But I'm not thst intelligent as others. But why they do'nt understand that?
+    - But i'm not intelligent as other students.  I can't score as they can.
+    - Mmm.. But i'm not that intelligent.. Why they don't understand that?
+    - I'm not talented as other students.. They are not understanding that
+- intent: out_of_control
+  examples: |
+    - I’m going crazy.
+    - I’m out of control.
+    - I can’t control myself.
+    - I don’t know what I’m doing. Iam out of control.
+    - I'm out of sorts today
+    - i'm out of control
+    - I thought pills would work. But nothing seems to be working. Im totally sinking
+    - I can't control myself.. I'm wailking dead?
+    - I'm gonna a mental patient.. I can't control myself.
+- intent: out_of_domain
+  examples: |
+    - Will you recommend me a book to read?
+    - will you suggest me a book to read?
+    - Please suggest a best seller book to me?
+    - Whats the weather outside?
+    - whats the time now?
+    - I'm hungry
+    - Could you suggest the best movie that i should go for?
+    - Will you come with me to a movie?
+    - Which are the nearby restaurants here?
+    - Do you know who is the president of India?
+    - i wanna go  for a film
+    - Can you sing a song for me?
+    - Will you marry me?
+    - I love you.. I want you
+    - I would like to marry you.
+    - Will you come with me for the lunch?
+    - Whats the wheather outside?
+    - Will you recommend the best restuarent her?
+- intent: projectincomplete
+  examples: |
+    - I worked a lot on my project but i couldn't complete it on time.
+    - I could'nt complete my project on time.
+    - I think i can't complete my project within the duration.
+    - I afraid, my project is gonna a big flop.
+    - My project is extended as i couldn't complete it on time.
+    - My project is extended.
+    - Only a few of us got the extension.
+    - I worked so hard for my project. But couldn't complete it on time.
+    - I skipped food and sleep for my project. But couldn't complete it on time.
+    - I had spent a lot of time foe my project. But couldn't complete it on time.
+    - I have project pressure
+- intent: saying_mad
+  examples: |
+    - people say i'm mad
+- intent: studypressure
+  examples: |
+    - I'm really tired and sometimes I even fall asleep in class.
+    - I'm just really confused about what I need to know for class and I can't seem to get going
+    - Classes are too difficult for me. I don't konw how to stud all these stuffs.
+    - My exams are coming. I don't know where to start. I'm gonna crazy.
+    - I feel fall asleep during the classes.. I don't like to study textbooks.
+    - Studying all the text and notes are not easy for me.
+    - My teacher gives me a lot of assignments and notes to do. And I'm tired of that.
+    - My problem is my studies. I don't like to study
+    - My exams are coming.. I dont know where to start..
+    - i don t know how to study
+    - My exams are near..  I'm afraid of exams.. I don't know where to start?
+    - I worried about my exams.. I don't know where to start.
+    - My exams are coming. I don't know where to start.
+    - My exams are coming. I don't know where to start?
+    - I'm worried about my test results. If I don't pass this test, I'll fail the course.
+    - Actually my problem is i can't pass that quantitative exam ... In case of interview and GD i'm confident
+    - I can't concentrate in my studies and my exams are near
+- intent: surebot
+  examples: |
+    - I'm sure, you're a bot.
+    - No, You are a bot
+    - You are a bot. I'm sure.
+    - No.. You're a bot.
+    - No no.. You are a bot.
+    - I know that you are a bot.
+    - Yes, you are a bot.
+    - no, you are a bot
+    - No, you are a bot
+- intent: telljoke
+  examples: |
+    - tell me a joke
+    - Say something funny.
+    - Give me a joke.
+    - Give me a funny joke.
+    - What's a good joke?
+    - Do you have any jokes?
+    - Do you know any jokes?
+    - I need a good joke.
+    - Tell me the best joke you know.
+    - Tell joke.
+    - Tell me something funny.
+    - Share a joke with me!
+    - Tell me something humorous!
+    - Will you tell me a joke.
+    - Can you tell me a joke.
+    - Would you tell me a joke
+    - Please tell me a joke.
+    - Could you tell me a joke.
+    - Would you share a joke with me.
+    - Could you please share a joke with me.
+    - Make me laugh.
+    - Entertain me with a joke.
+    - Tell me something that you think will make me laugh.
+    - I want to hear something funny.
+    - Give me some comic relief.
+    - Can you tell a joke?
+    - Know any jokes?
+    - Come up with a joke you think I'll find funny.
+    - Let's hear a joke from you.
+    - say a joke that's funny
+    - make me laugh with a joke
+    - tell me something funny, like a joke
+    - say a joke
+    - tell me a short joke
+    - tell me a story joke
+    - say a funny joke
+    - say a joke that's so bad it's funny
+    - make me laugh with a bad joke
+    - give me a good joke
+    - you can say a jok
+    - can you tell me a joke?
+- intent: thankyou
+  examples: |
+    - Thanks
+    - Thank you
+    - Thank you so much
+    - Thanks bot
+    - Thanks for that
+    - cheers
+    - cheers bro
+    - ok thanks!
+    - perfect thank you
+    - thanks a bunch for everything
+    - thanks for the help
+    - thanks a lot
+    - amazing, thanks
+    - cool, thanks
+    - cool thank you
+    - Thanks. I appreciate it.
+    - thanku
+    - Thank you and goodbye
+    - Thanks fro talking.
+    - tanku
+    - thnk u
+    - thnku
+    - Ohh.. Thanks for your kind words
+- intent: want_to_kill
+  examples: |
+    - I wanna kill him.
+    - I want to kill them.
+    - I want to kill you.
+    - I wish I could kill him.
+    - I will kill him, because he ruined my life.
+    - i will kill you
+- intent: want_to_suicide
+  examples: |
+    - I don’t want to live anymore.
+    - I wanna kill myself.
+    - I don't like to live anymore.
+    - I want to die.
+    - I wanna die.
+    - I hate my life, I wanna die at this moment.
+    - I no longer like to live
+    - I hate myself, I want to die but don't want to kill myself
+    - No.. she was my world.. She was my life.. I don't want to live anymore
+    - I feel like i'm gonna die.. I don't wanna live without her
+    - I want to die
+    - I don't wanna live anymore
+    - I wanna die... I hate my life
+- intent: wanttotalk
+  examples: |
+    - I want to talk
+    - I want to chat with you
+    - I want to talk to you
+    - I want to chat
+    - Want to talk
+    - Could I talk to you for a now?
+    - Don't say bye.. I want to talk to you.
+    - Hey don't go.. I want to caht with you
+    - I came to talk with you. Then why are you going?
+    - Hey don't say bye.. Lets talk.
+    - don't say bye.. I want to talk to you
+- intent: why_left_me
+  examples: |
+    - why she  had left me ?
+    - i want to know why she had left me?
+    - I loved her more than anything in this world.. But she left me.. Why?
+    - I don't konw why she had left me? How she could do that?
+    - Still i can't believe that she had left me
+- intent: ask_howold
+  examples: |
+    - whats your age?
+    - how old?
+    - what's your age?
+    - when were you born?
+    - what is your birthday?
+    - when is your birthday?
+    - how many years old are you?
+    - do you know how old you are?
+    - what is your exact age?
+    - what year were you born?
+    - can you tell me your age?
+    - What is your age?
+    - What is your birthdate?
+    - How old will you be on your next birthday?
+    - When do you celebrate your day of birth?
+    - How old were you on your last birthday?
+    - How many candles were on your last birthday cake?
+    - Do you have friends the same age as you, if so, how old are they?
+    - Tell me your day, month and year of birth.
+    - Whats your age?
+    - and you are how many years old?
+    - whats your birth year?
+    - what age were you when you celebrated your last birthday?
+    - how old were you when you celebrated your last birthday?
+    - tell me your age?
+    - how about your age
+    - how old were you on your last birthday?
+    - what age are you
+    - how old will you be this year?
+    - What year were you born?
+    - How long have you been around?
+    - How long have you been alive?
+    - What was your age on your last birthday?
+    - What will be your age on your next birthday?
+    - How many years have you lived?
+    - How many years have you been alive?
+    - How long have you occupied the earth?
+    - What is your count of years being alive so far?
+    - what is your age?
+    - in what year were you born?
+    - what number represents your age?
+    - tell me how old you are?
+    - give me your age?
+    - tell me your age number?
+    - can you tell me exactly how old you are?
+    - can you tell me what number represents your age?
+    - how old are you
+    - How old are you?
+    - how old are u
+- intent: ask_wherefrom
+  examples: |
+    - where do you live?
+    - where do you live
+    - where are you from?
+    - So where are you from
+    - Where are you?
+    - Where were you born?
+    - What city were you born in?
+    - Where did you grow up?
+    - What state were you born in?
+    - What country were you born in?
+    - Where do you come from?
+    - Where were you at before you were here?
+    - Where from?
+    - Do you know where you come from?
+    - where's your home town?
+    - what country are you from?
+    - are you from around here?
+    - where did you grow up?
+    - where are your parents from?
+    - where did you spend your youth?
+    - where did you come from?
+    - Where do you consider home?
+    - What city do you claim to for your birth?
+    - What citizenship do you lay claim to?
+    - What is your heritage?
+    - What is your birthplace?
+    - You were conceived in what city?
+    - What is your root?
+    - What is your origin?
+    - From where did you come?
+    - Where did you come from?
+    - Where did you originate?
+    - Where are your roots?
+    - Where are your origins?
+    - What area are you from?
+    - What city are you from?
+    - What's the name of the place you came from?
+    - What is your original city?
+    - Where might you be from?
+    - Where do you live?
+    - What city are you in?
+    - What country are you from?
+    - Around where are you from?
+    - Where are you located?
+    - Are you from around here?
+    - You live around here?
+- intent: workpressure
+  examples: |
+    - Well, I'm really upset about the changes at work.
+    - My company gives me the most stress.
+    - I'm sick of this job.
+    - Work is kicking my ass. I'm so stressed'
+    - it's been quite stressful here to work in this company.
+    - I have been working on this proposal for the last 6 hours. I feel like my head’s about to explode. I need to get out of here.
+    - The workload in the last few months has been relentless. I just can’t take it anymore.
+    - I'm drowning in paperwork.
+    - I'm up to my ears in work.
+    - I know and i tried my best to adjust. But they are giving me more than i could bear.
+    - I'm dead because of the workload
+    - I know that.. So i tried my maximum to adjust with this rude atmosphere .. but i can't work in this company anymore
+    - I'm really tired of my work.. It's too hard.. I can't take test a bit
+    - May be.. Its my work.. I can't adjust with my rude boss and working conditions
+    - I didn't get my promotion from work. It's depressing me.
+    - How can overcome.. For that we have to change our company and its very difficult...
+    - They don't have humanity.. They treat us like slaves
+- intent: youareabot
+  examples: |
+    - You are a robot. You don't understand my feelings
+    - You are a bot. You don't have emotions.
+    - You are a bot. You don't understand human emotions.
+    - I know you are a bot. You can't understand human feelings.
+    - You are a bot and you don't know how i feel
+    - You are a robot and you can't understand my feelings.
+    - you don't know my feelings because you are a bot.
+    - You don't know how i feel because you are a bot.
+    - You are a bot. You don't understand my feelings
+    - You are a bot. You don't know how i feel
+    - you are a bot
+- synonym: Ashish
+  examples: |
+    - ashish
+- synonym: Harsh
+  examples: |
+    - harsh
