@@ -7,7 +7,8 @@ class DayDescriptionForm(ModelForm):
         model = DayDescription
         fields = ['subject','body']
         labels = {
-            'body':'How was your Day'
+            'subject':'Subject*',
+            'body':'How was your Day*'
         }
 
     def __init__(self,*args,**kwargs):
@@ -15,3 +16,4 @@ class DayDescriptionForm(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'

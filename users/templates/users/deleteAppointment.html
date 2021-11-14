@@ -12,10 +12,14 @@
 
             <form class="form" action="" method="POST">
                 {% csrf_token %}
-                <p>Are you sure you want to delete "{{appointment}}"?</p>
-
+                <p>Are you sure you want to delete "{{appointment}}" appointment?</p>
+                <div class="form__field">
+                    <label for="formInput#textarea">Reason </label>
+                    <textarea class="input input--textarea" name="reason" id="formInput#textarea"
+                      placeholder="Write your reason here..."></textarea>
+                </div>
                 <a class="btn btn--sub btn--lg  my-md" href="{% url 'appointment' appointment.id%}">Go Back</a>
-
+                
                 <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
             </form>
         </div>

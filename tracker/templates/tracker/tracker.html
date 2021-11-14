@@ -24,14 +24,14 @@
 
             <div class="card" style="border-left: .25rem solid #36b9cc!important;">
                 <div class="card_inner">
-                <p class="text-primary-p">SENTIMENT CHANGE</p>
+                <p class="text-primary-p">MOOD CHANGE</p>
                 <span class="font-bold text-title">{{sentimental_change}}</span>
                 </div>
             </div>
 
             <div class="card" style="border-left: .25rem solid #f6c23e!important;">
                 <div class="card_inner">
-                <p class="text-primary-p">AVERAGE SENTIMENT</p>
+                <p class="text-primary-p">AVG MOOD Pattern</p>
                 <span class="font-bold text-title">{{avg_sentimental}}</span>
                 </div>
             </div>
@@ -107,32 +107,25 @@
         },
       options: {
         legend: {display: false},
-        
+        scales: {
+            
+            yAxes: [{
+            scaleLabel: {
+                display: true,
+                labelString: 'Sentiment'
+                }
+            }],
+            xAxes: [{
+            scaleLabel: {
+                display: true,
+                labelString: 'Dates'
+                }
+            }],
+            
+        }
+
       }
     });
 
-
-new Chart("myChart2", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-      borderColor: "red",
-      fill: false
-    },{
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-      borderColor: "green",
-      fill: false
-    },{
-      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-      borderColor: "blue",
-      fill: false
-    }]
-  },
-  options: {
-    legend: {display: false}
-  }
-});
     </script>
 {% endblock %}

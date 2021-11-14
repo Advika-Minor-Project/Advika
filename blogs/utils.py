@@ -39,6 +39,9 @@ def searchBlogs(request):
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
 
+    if request.GET.get('tags'):
+        search_query=(request.GET.get('tags')).split('(')[0]
+        
     tags = Tag.objects.filter(name__icontains=search_query)
 
     blogs = Blog.objects.distinct().filter(
