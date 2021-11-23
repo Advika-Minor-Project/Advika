@@ -1,0 +1,68 @@
+{% extends 'main.html'%} 
+{% load static %}
+{% block css_files%}
+<link rel="stylesheet" href="{% static 'styles/home.css'%}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section text-center">
+    <div class="container container--narrow">
+        <img src="https://s8.gifyu.com/images/Advika-2.gif" alt="Advika" style="float:left" >
+        <div class="hero-section__box">
+            <h2>WELCOME TO <span> ADVIKA</span></h2>
+            <br>
+            <h4  ><i>"Happiness can be found even in the darkest of times, if one only remembers to turn on the light."</i></h4>
+</section>
+
+
+<br>
+
+<div class="container">
+  <h2 style="color: black; opacity: 0.7;" >About Us</h2>
+  <h5>We are dedicated to not only help the user to work on their mental health but also helps in raising awareness and
+ People who are not doing well mentally need resources (meditation, blogs), want to talk to someone or maybe just need some guidance from
+experts or even track your days for how you have been doing, this all can be done in one place.</h5>
+<br>
+<br>
+</div>
+
+
+<div class="container">
+        <h2 style="text-align: center; color: black; opacity: 0.7;" >Our Features</h2>
+        <a href="{% url 'profiles'%}">
+        <div class="cards-list">
+            <div class="card 1">
+                <div class="card_image"> <img src="https://i.ibb.co/qpvLJfs/3796820.jpg"/> </div>
+                <div class="card_title title-black">
+                    <h5><b>Contact a Mental Health Specialist</b></h5>
+                </div>
+            </div>
+        </a>
+            <a href="{% url 'blogs'%}">
+            <div class="card 2">
+                <div class="card_image">
+                    <img src="https://i.ibb.co/nfs4rpB/Copywriter-at-huge-laptop-writting-creative-advertising-text-Copywriting-job-home-based-copywriter-f.jpg" />
+                </div>
+                <div class="card_title title-black" style=" margin-top: -110px;">
+                    <br>
+                    <h5><b>Read and Write Blogs</b></h5>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'tracker'%}">
+            <div class="card 3">
+                <div class="card_image">
+                    <img src="https://i.ibb.co/9hggtyt/Tiny-people-and-beautiful-flower-garden-inside-female-head-isolated-flat-vector-illustration-Cartoon.jpg" />
+                </div>
+                <div class="card_title title-black">
+                    <h5><b>Keep track of your daily moods</b></h5>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
+
+    {% include 'footer.html'%}
+{% endblock%}
