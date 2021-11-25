@@ -1,0 +1,109 @@
+
+
+        
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 200px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -85px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+.container1 {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0
+}
+
+.container1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container1 img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container1 span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .container1 {
+      text-align: center;
+  }
+  .container1 img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
