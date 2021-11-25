@@ -1,3 +1,4 @@
+from decimal import Context
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -5,6 +6,7 @@ from .forms import DayDescriptionForm
 from textblob import TextBlob
 from statistics import mean
 import datetime
+from .utils import paginateTracks
 # Create your views here.
 @login_required(login_url='login')
 def tracker(request):
@@ -90,3 +92,11 @@ def trackerForm(request):
         
     context={'form':form}
     return render(request,'tracker/tracker_form.html',context)
+
+@login_required(login_url='login')
+def dayDescriptions(request):
+    profile = request.user.profile
+    tracks = profile.tracks.filter(owner = profile).order_by('-date')
+    custom_range, tracks = paginateTracks(request, tracks, 4)
+    context={'tracks':tracks,'custom_range': custom_range}
+    return render(request,'tracker/trackerDescriptions.html',context)

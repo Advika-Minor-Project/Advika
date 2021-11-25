@@ -1,0 +1,39 @@
+{% extends 'main.html'%}
+
+{% load static %}
+{% block content %}
+<main class="projects">
+    <section class="hero-section text-center">
+        <div class="container container--narrow">
+            <div class="hero-section__box">
+                <h2>Daily Descriptions</h2>
+            </div>            
+        </div>
+    </section>
+    <section class="projectsList">
+        <div class="container">
+            <div class="grid grid--one">
+                {% for track in tracks %}
+                <div class="column">
+                    <div class="card project">
+                            <div class="card__body">
+                                <p>
+                                    {{track.date}}
+                                </p>
+                                <h4 class="project__title">{{track.body}}</h4>
+                                
+                            
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <div style="padding-bottom: 2rem;">
+        {% include 'pagination.html' with queryset=tracks custom_range=custom_range %}
+    </div>
+    
+</main>
+{% endblock %}
