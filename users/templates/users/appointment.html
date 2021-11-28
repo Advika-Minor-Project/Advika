@@ -8,7 +8,7 @@
     <div class="message">
       <a class="backButton" href="{% url 'appointmentInbox' %}"><i class="im im-angle-left"></i></a>
       <h2 class="message__subject">{{appointment.subject}} 
-        {% if request.user.profile.role == 'Mental Health Specialist'%}
+        {% if request.user.profile.role == 'Mental Health Specialist' and appointment.sender is not request.user.profile%}
           <a style="float: right; margin-left: 2%;" href="{%url 'deleteAppointment' appointment.id%}"><button class="btn btn--sub"> Delete <i class="fas fa-trash    "></i> </button></a> 
           {% if appointment.confirm == False %}
           <a style="float: right;" href="{%url 'confirmAppointment' appointment.id%}"><button class="btn btn--sub">  Confirm <i class="fas fa-check-circle    "></i> </button></a>
@@ -16,12 +16,17 @@
           {% endif %}
         {% endif %}
       </h2>
-        
+      {% if request.user.profile.role == 'Mental Health Specialist' and appointment.sender is not request.user.profile%}
         {% if appointment.sender %}
         <a href="{% url 'user-profile' appointment.sender.id  %}" class="message__author">{{appointment.name}}</a>
         {% else %}
         <p class="message__author">{{appointment.name}}</p>
         {% endif %}
+      {% else %}
+        {% if appointment.recipient %}
+        <a href="{% url 'user-profile' appointment.recipient.id  %}" class="message__author">{{appointment.recipient.name}}</a>
+        {% endif%}
+      {%endif%}
         <p class="message__date">{{appointment.date}}, {{appointment.time}}</p>
         <div class="message__body">{{appointment.body|linebreaksbr}}</div>
     </div>
