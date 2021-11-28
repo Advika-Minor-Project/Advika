@@ -756,6 +756,16 @@ img {
   color: var(--color-sub);
 }
 
+.message.message--unread--mh a span {
+  font-weight: 700;
+  color: firebrick;
+}
+
+.message.message--read--mh a span {
+  color:firebrick;
+  opacity: 0.8;
+}
+
 .message:not(:last-child) {
   border-bottom: 2px solid var(--color-white-light);
 }
@@ -844,8 +854,13 @@ img {
   margin-top: 2rem;
 }
 
-
-
+.form__field ul{
+  list-style: none;
+  display: inline-flex;
+}
+.form__field ul li{
+  margin-right: 1rem;
+}
 /*=======================
   Fixed Position Alerts Wrapper
 ========================*/

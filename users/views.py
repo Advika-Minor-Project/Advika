@@ -6,11 +6,13 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
 
-from .utils import searchProfiles,paginateProfiles
+from .utils import searchProfiles,paginate
 from .models import Profile,Message
 from .forms import AppointmentForm, CustomUserCreationForm,ProfileForm,MessageForm,QualificationForm,RoleForm
 from django.core.mail import send_mail
 from django.conf import settings
+
+from django.contrib.auth.models import Group
 # Create your views here.
 
 def home(request):
@@ -59,6 +61,8 @@ def registerUser(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
+            group = Group.objects.get(name=role)
+            user.groups.add(group)
             profile = Profile.objects.create(
                 user=user,
                 username=user.username,
@@ -90,14 +94,17 @@ def registerUser(request):
     
 def profiles(request):
     profiles, search_query = searchProfiles(request)
-    custom_range, profiles = paginateProfiles(request, profiles, 3)
+    custom_range, profiles = paginate(request, profiles, 3)
     context = {"profiles":profiles,'search_query':search_query,'custom_range': custom_range}
     return render(request,'users/profiles.html',context)
 
 def userProfile(request,pk):
     profile = Profile.objects.get(id=pk)
     qualifications = profile.qualification_set.all()
-    context = {'profile':profile,'qualifications':qualifications}
+    blogs = profile.blog_set.all()
+    bool_blogs = blogs.count()>0
+    bool_qualifications = qualifications.count()>0
+    context = {'profile':profile,'qualifications':qualifications,'bool_blogs':bool_blogs,'bool_qualifications':bool_qualifications}
     return render(request,'users/user-profile.html',context)
 
 
@@ -177,7 +184,8 @@ def inbox(request):
     profile = request.user.profile
     messageRequests = profile.messages.all()
     unreadCount = messageRequests.filter(is_read=False).count()
-    context = {'messageRequests': messageRequests, 'unreadCount': unreadCount}
+    custom_range, messageRequests = paginate(request, messageRequests, 6)
+    context = {'messageRequests': messageRequests, 'unreadCount': unreadCount,'custom_range': custom_range}
     return render(request,'users/inbox.html',context)
 
 @login_required(login_url='login')
@@ -221,22 +229,30 @@ def createMessage(request,pk):
 def appointmentInbox(request):
     profile = request.user.profile
     if profile.role == 'Mental Health Specialist':
-        appointmentRequests = profile.appointments.all().order_by('-confirm')
+        appointmentRequests=list(profile.sender_appointments.all())
+        appointmentRequests+= list(profile.appointments.all())
+        Count = len(appointmentRequests)
     else:
         appointmentRequests=profile.sender_appointments.all()
-    Count = appointmentRequests.count()
-    context = {'appointmentRequests': appointmentRequests, 'Count': Count}
+    try:
+        Count = appointmentRequests.count()
+    except:
+        pass
+    custom_range, appointmentRequests = paginate(request, appointmentRequests, 6)
+    context = {'appointmentRequests': appointmentRequests, 'Count': Count,'custom_range': custom_range}
     return render(request,'users/appointmentInbox.html',context)
 
 @login_required(login_url='login')
 def viewAppointment(request,pk):
     profile = request.user.profile
     if profile.role == 'Mental Health Specialist':
-        appointment = profile.appointments.get(id=pk)
+        try:
+            appointment = profile.appointments.get(id=pk)
+        except:
+            appointment = profile.sender_appointments.get(id=pk)
     else:
         appointment = profile.sender_appointments.get(id=pk)
     
-    print(appointment.confirm)
     context={'appointment':appointment}
     return render(request,'users/appointment.html',context)
 
@@ -285,13 +301,13 @@ def deleteAppointment(request,pk):
     appointment = profile.appointments.get(id=pk)
 
     if request.method == 'POST':
-        reason = request.POST['reason']
-
+        reason1 = request.POST['reason1']
+        reason2 = request.POST['reason2']
+        
         subject = 'Advika Appointment Not approved'
         ## SET MESSAGE
         message = 'Your appointment could not be approved. Please try again.\n'
-        message = message +'because '+reason
-
+        message = message +'because '+reason1+' '+reason2
         send_mail(
             subject,
             message,

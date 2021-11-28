@@ -23,6 +23,8 @@
       {% endfor %}
     </ul>
   </div>
+  
+  {% include 'pagination.html' with queryset=messageRequests custom_range=custom_range %}
 </main>
 
 {% endblock content %}

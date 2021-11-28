@@ -14,8 +14,17 @@
                 {% csrf_token %}
                 <p>Are you sure you want to delete "{{appointment}}" appointment?</p>
                 <div class="form__field">
-                    <label for="formInput#textarea">Reason </label>
-                    <textarea class="input input--textarea" name="reason" id="formInput#textarea"
+                    <label for="formInput#textarea">Choose a reason:</label>
+                    <select name="reason1">
+                        <option value="">Choose your reason</option>
+                        <option value="Slot Unavailability">Slot Unavailability</option>
+                        <option value="Not Free">Not Free</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="Price">Price</option>
+                    </select>
+
+                    <label style="margin-top: 2rem;" for="formInput#textarea">Write Your Own reason </label>
+                    <textarea class="input input--textarea" name="reason2" id="formInput#textarea"
                       placeholder="Write your reason here..."></textarea>
                 </div>
                 <a class="btn btn--sub btn--lg  my-md" href="{% url 'appointment' appointment.id%}">Go Back</a>

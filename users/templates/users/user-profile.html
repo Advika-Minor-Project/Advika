@@ -21,25 +21,32 @@
 
                             {% if profile.social_twitter %}
                             <li>
-                                <a title="Twitter" href="{{profile.social_twitter}}" target="_blank"><i
-                                        class="im im-twitter"></i></a>
+                              <a title="Twitter" href="{{profile.social_twitter}}" target="_blank"><i class="im im-twitter"></i></a>
                             </li>
                             {% endif %}
-
+                            
                             {% if profile.social_linkedin %}
                             <li>
-                                <a title="LinkedIn" href="{{profile.social_linkedin}}" target="_blank"><i
-                                        class="im im-linkedin"></i></a>
+                              <a title="LinkedIn" href="{{profile.social_linkedin}}" target="_blank"><i
+                                  class="im im-linkedin"></i></a>
                             </li>
                             {% endif %}
-
+              
+                            {% if profile.social_youtube %}
+                            <li>
+                              <a title="Youtube" href="{{profile.social_youtube}}" target="_blank"><i class="im im-youtube"></i></a>
+                            </li>
+                            {% endif %}
+              
+              
                             {% if profile.social_website %}
                             <li>
-                                <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i
-                                        class="im im-globe"></i></a>
+                              <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i
+                                  class="im im-globe"></i></a>
                             </li>
                             {% endif %}
-                        </ul>
+              
+                                      </ul>
                         <div class="dev__location">
 
                             {% if request.user.profile.id != profile.id %}
@@ -60,11 +67,11 @@
                     <h3 class="devInfo__title">About Me</h3>
                     <p class="devInfo__about">{{profile.bio}}</p>
                 </div>
-                {% if request.user.profile.role == 'Mental Health Specialist' and bool_qualifications %}
+                {% if profile.role == 'Mental Health Specialist' and bool_qualifications %}
                 <div class="settings">
                     <h3 class="settings__title">Qualification</h3>
                 </div>
-                  <div class="grid grid--two">
+                  <div class="grid">
                     {% for qualification in qualifications %}
                     <div class="column">
                         <div class="card project">

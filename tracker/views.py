@@ -7,8 +7,13 @@ from textblob import TextBlob
 from statistics import mean
 import datetime
 from .utils import paginateTracks
+
+
+from .decorators import  allowed_users
+
 # Create your views here.
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['User'])
 def tracker(request):
     profile = request.user.profile
     
@@ -63,6 +68,7 @@ def tracker(request):
     return render(request,'tracker/tracker.html',context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['User'])
 def trackerForm(request):
     profile = request.user.profile
     form = DayDescriptionForm()
@@ -94,6 +100,7 @@ def trackerForm(request):
     return render(request,'tracker/tracker_form.html',context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['User'])
 def dayDescriptions(request):
     profile = request.user.profile
     tracks = profile.tracks.filter(owner = profile).order_by('-date')

@@ -9,10 +9,20 @@
     <ul class="messages">
       {% for appointment in appointmentRequests %}
       {% if appointment.confirm == True %}
-      <li class="message message--unread">
+      {% if request.user.profile.role == 'Mental Health Specialist' and appointment.sender is request.user.profile%}
+      <li class="message message--unread--mh" ">
         {% else %}
-      <li class="message">
+        <li class="message message--unread">
+      {%endif%}
+      {% else %}
+      {% if request.user.profile.role == 'Mental Health Specialist' and appointment.sender is request.user.profile%}
+      <li class="message message--read--mh" style="text-decoration: pink;">
+        {% else %}
+        <li class="message">
+      {%endif%}
         {% endif %}
+
+        
 
         <a href="{% url 'appointment' appointment.id %}">
           <span class="message__author">{{appointment.name}}</span>
@@ -24,6 +34,8 @@
       {% endfor %}
     </ul>
   </div>
+  
+  {% include 'pagination.html' with queryset=appointmentRequests custom_range=custom_range %}
 </main>
 
 {% endblock content %}
