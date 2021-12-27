@@ -42,7 +42,7 @@ our website.
 - JS
 - RASA
 
-## Quick Start
+## Installation
 To get this project up and running locally on your computer:
 1. Set up the [Python development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment).
    We recommend using a Python virtual environment.
@@ -53,6 +53,23 @@ To get this project up and running locally on your computer:
    python3 manage.py migrate
    python3 manage.py runserver
    ```
+1. Running Chatbot Locally
+   ```
+   cd Advika Chatbot
+   conda create -n rasavirtualenv
+   conda activate rasavirtualenv
+   pip install rasa
+   rasa train
+   rasa test
+   rasa run -m models --enable-api --cors "*" --debug
+   ```
 1. Open a browser to `http://127.0.0.1:8000/admin/` to open the admin site
 1. Create a few test objects of each type.
 1. Open tab to `http://127.0.0.1:8000` to see the main site, with your new objects.
+
+## Team Members
+
+- [Aaryan Sharma](https://github.com/Aaryan8751)
+- [Pratikshit Agrahari](https://github.com/Pratikshit09)
+- [Shishir Parakh](https://github.com/shishir-code)
+- [Vernie Thorpe](https://github.com/VernieThorpe)
