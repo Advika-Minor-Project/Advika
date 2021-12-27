@@ -71,8 +71,16 @@ To get this project up and running locally on your computer:
 1. Create a few test objects of each type.
 1. Open tab to `http://127.0.0.1:8000` to see the main site, with your new objects.
 
-## Team Members
+## Documents
+- [Advika Write-up](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Updated%20ADVIKA-%20A%20MENTAL%20HEALTH%20WEBSITE.pdf)
+- [Advika Report](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Project%20Report.pdf)
+- [UML Use Case Diagram](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Updated%20Advika%20UML_USE_CASE_DIAGRAM.pdf)
+- [UML Activity Diagram](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Updated%20Advika%20Activity%20Diagram.pdf)
+- [UML Class Diagram](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Advika%20Class%20Diagram.pdf)
+- [UML Sequence Diagram](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Advika%20Sequence%20Diagram.pdf)
+- [UML State Chart Diagram](https://github.com/Advika-Minor-Project/SE-Submissions/blob/main/Advika_UML_State%20Chart%20Diagram.pdf)
 
+## Team Members
 - [Aaryan Sharma](https://github.com/Aaryan8751)
 - [Pratikshit Agrahari](https://github.com/Pratikshit09)
 - [Shishir Parakh](https://github.com/shishir-code)
