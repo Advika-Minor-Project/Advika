@@ -28,6 +28,36 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
+# PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+PWA_APP_NAME = 'Advika'
+PWA_APP_DESCRIPTION = "Advika PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+  {
+    'src': 'static/images/frame.png',
+    'sizes': '512x512'
+  }
+]
+PWA_APP_ICONS_APPLE = [
+  {
+    'src': 'static/images/frame.png',
+    'sizes': '512x512'
+  }
+]
+PWA_APP_SPLASH_SCREEN = [
+  {
+    'src': 'static/images/frame.png',
+    'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+  }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
 
 # Application definition
 
@@ -39,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'pwa',
 
     'blogs.apps.BlogsConfig',
     'users.apps.UsersConfig',
@@ -128,8 +159,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'Your Email ID'
-EMAIL_HOST_PASSWORD = 'Email ID Password'
+EMAIL_HOST_USER = 'Your Email'
+EMAIL_HOST_PASSWORD = 'Email Password'
 
 
 
