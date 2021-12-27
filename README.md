@@ -4,20 +4,6 @@ A pandemic is not just a medical phenomenon; it affects individuals and society 
 
  **Advika is live at** http://advika.us-east-2.elasticbeanstalk.com/
 ***
-## Screenshot
-
-![Home Page](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Home.png)
-![Chatbot](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Chatbot/Screenshot%20(911).png)
-![Tracker](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Tracker.png)
-
-## Tech/Framework used
-
-- Django
-- Django-PWA
-- HTML
-- CSS
-- JS
-- RASA
 
 ## Features
 
@@ -40,6 +26,21 @@ pattern of any mental illness.
 - The user can also find information 
 about psychologists/Specialists on 
 our website.
+
+## Screenshots
+
+![Home Page](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Home.png)
+![Chatbot](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Chatbot/Screenshot%20(911).png)
+![Tracker](https://github.com/Advika-Minor-Project/Advika/blob/main/Screenshots/Tracker.png)
+
+## Tech/Framework used
+
+- Django
+- Django-PWA
+- HTML
+- CSS
+- JS
+- RASA
 
 ## Quick Start
 To get this project up and running locally on your computer:
