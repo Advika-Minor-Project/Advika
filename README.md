@@ -49,6 +49,10 @@ To get this project up and running locally on your computer:
 1. Assuming you have Python setup, run the following commands (if you're on Windows you may use `py` or `py -3` instead of `python3` to start Python):
    ```
    pip3 install -r requirements.txt
+   Open Settings.py and set:
+      SECRET_KEY = 'Your Secret Key'
+      EMAIL_HOST_USER = 'Your Email'
+      EMAIL_HOST_PASSWORD = 'Email Password'
    python3 manage.py makemigrations
    python3 manage.py migrate
    python3 manage.py runserver
